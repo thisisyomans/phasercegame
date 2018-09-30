@@ -2,6 +2,7 @@ var config = {
 	type: Phaser.CANVAS,
 	width: 800,
 	height: 600,
+	parent: 'gamecanvas',
 	title: 'randomjsgame',
 	physics: {
 		default: 'arcade',
