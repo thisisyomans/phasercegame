@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/thisisyomans/randomjsgame/issues"
   },
-  "homepage": "https://github.com/thisisyomans/randomjsgame"
+  "homepage": "https://github.com/thisisyomans/randomjsgame",
+  "devDependencies": {
+    "node-http-server": "^8.1.2"
+  }
 }
