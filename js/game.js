@@ -11,7 +11,7 @@ var config = {
 		}
 	},
 	scene : {
-		//key: 'main',
+		key: 'game',
 		preload: preload,
 		create: create,
 		update: update
