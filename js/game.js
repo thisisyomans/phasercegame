@@ -12,7 +12,7 @@ var config = {
 		}
 	},
 	scene : {
-		key: 'game',
+		key: 'gamekey',
 		preload: preload,
 		create: create,
 		update: update
@@ -57,8 +57,29 @@ function create(){
 	//game boundaries
 	this.physics.world.bounds.width = layerGround.width;
 	this.physics.world.bounds.height = layerGround.height;
+
+	//player sprite
+	player = this.physics.add.sprite(200, 200, 'player');
+	player.setBounce(0.2);
+	player.setCollideWorldBounds(true);
+
+	this.physics.add.collider(layerGround, player);
+
+	keyboard = this.input.keyboard.createCursorKeys();
+
+	this.cameras.gamekey.setBounds(0, 0, gamemap.widthInPixels, gamemap.heightInPixels);
+	this.cameras.gamekey.startFollow(player);
+	this.cameras.gamekey.setBackgroundColor('#ccccff');
 }
 
 function update(){
-
+	if (keyboard.left.isDown){
+		player.body.setVelocityX(-200);
+	}
+	else if (keyboard.right.isDown){
+		player.body.setVelocityX(200);
+	}
+	if ((keyboard.space.isDown || keyboard.up.isDown) && player.body.onFloor()){
+		player.body.setVelocityY(-500);
+	}
 }
